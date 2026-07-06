@@ -1,0 +1,358 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\BarrierBlackScholesPDE.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|solutionrelative:BarrierBlackScholesPDE.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\BlackScholesPDE.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|solutionrelative:BlackScholesPDE.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\BarrierBlackScholesPDE.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|solutionrelative:BarrierBlackScholesPDE.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\BlackScholesPDE.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|solutionrelative:BlackScholesPDE.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\ConvergenceTest.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|solutionrelative:ConvergenceTest.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\ImplicitFD.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|solutionrelative:ImplicitFD.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\CrankNicolsonFD.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|solutionrelative:CrankNicolsonFD.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\CrankNicolsonFD.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|solutionrelative:CrankNicolsonFD.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\ImplicitFD.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|solutionrelative:ImplicitFD.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\PSORSolver.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|solutionrelative:PSORSolver.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\PSORSolver.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|solutionrelative:PSORSolver.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\ThomasSolver.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|solutionrelative:ThomasSolver.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\ExplicitFD.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|solutionrelative:ExplicitFD.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\ExplicitFD.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|solutionrelative:ExplicitFD.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\StabilityTest.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|solutionrelative:StabilityTest.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\ThomasSolver.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|solutionrelative:ThomasSolver.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\StabilityTest.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|solutionrelative:StabilityTest.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\ConvergenceTest.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|solutionrelative:ConvergenceTest.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\Grid1D.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{657B9030-3FEF-42C6-9B20-6162B332DF62}|PDEProject.vcxproj|solutionrelative:Grid1D.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BarrierBlackScholesPDE.cpp",
+              "DocumentMoniker": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\BarrierBlackScholesPDE.cpp",
+              "RelativeDocumentMoniker": "BarrierBlackScholesPDE.cpp",
+              "ToolTip": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\BarrierBlackScholesPDE.cpp",
+              "RelativeToolTip": "BarrierBlackScholesPDE.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-10T13:53:19.427Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BarrierBlackScholesPDE.hpp",
+              "DocumentMoniker": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\BarrierBlackScholesPDE.hpp",
+              "RelativeDocumentMoniker": "BarrierBlackScholesPDE.hpp",
+              "ToolTip": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\BarrierBlackScholesPDE.hpp",
+              "RelativeToolTip": "BarrierBlackScholesPDE.hpp",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACYAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-10T13:51:52.178Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BlackScholesPDE.cpp",
+              "DocumentMoniker": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\BlackScholesPDE.cpp",
+              "RelativeDocumentMoniker": "BlackScholesPDE.cpp",
+              "ToolTip": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\BlackScholesPDE.cpp",
+              "RelativeToolTip": "BlackScholesPDE.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-10T13:35:29.563Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\main.cpp",
+              "RelativeDocumentMoniker": "main.cpp",
+              "ToolTip": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\main.cpp",
+              "RelativeToolTip": "main.cpp",
+              "ViewState": "AgIAAFICAAAAAAAAAAAAAHACAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-06T20:42:46.799Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "PSORSolver.cpp",
+              "DocumentMoniker": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\PSORSolver.cpp",
+              "RelativeDocumentMoniker": "PSORSolver.cpp",
+              "ToolTip": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\PSORSolver.cpp",
+              "RelativeToolTip": "PSORSolver.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-10T09:33:30.451Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "PSORSolver.hpp",
+              "DocumentMoniker": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\PSORSolver.hpp",
+              "RelativeDocumentMoniker": "PSORSolver.hpp",
+              "ToolTip": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\PSORSolver.hpp",
+              "RelativeToolTip": "PSORSolver.hpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-10T09:33:18.371Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ImplicitFD.hpp",
+              "DocumentMoniker": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\ImplicitFD.hpp",
+              "RelativeDocumentMoniker": "ImplicitFD.hpp",
+              "ToolTip": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\ImplicitFD.hpp",
+              "RelativeToolTip": "ImplicitFD.hpp",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-08T14:03:10.381Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CrankNicolsonFD.cpp",
+              "DocumentMoniker": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\CrankNicolsonFD.cpp",
+              "RelativeDocumentMoniker": "CrankNicolsonFD.cpp",
+              "ToolTip": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\CrankNicolsonFD.cpp",
+              "RelativeToolTip": "CrankNicolsonFD.cpp",
+              "ViewState": "AgIAAIEAAAAAAAAAAAAswJgAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-08T15:36:57.233Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CrankNicolsonFD.hpp",
+              "DocumentMoniker": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\CrankNicolsonFD.hpp",
+              "RelativeDocumentMoniker": "CrankNicolsonFD.hpp",
+              "ToolTip": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\CrankNicolsonFD.hpp",
+              "RelativeToolTip": "CrankNicolsonFD.hpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-08T15:36:20.562Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ImplicitFD.cpp",
+              "DocumentMoniker": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\ImplicitFD.cpp",
+              "RelativeDocumentMoniker": "ImplicitFD.cpp",
+              "ToolTip": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\ImplicitFD.cpp",
+              "RelativeToolTip": "ImplicitFD.cpp",
+              "ViewState": "AgIAAGQAAAAAAAAAAAAswH0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-08T14:04:56.362Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ThomasSolver.cpp",
+              "DocumentMoniker": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\ThomasSolver.cpp",
+              "RelativeDocumentMoniker": "ThomasSolver.cpp",
+              "ToolTip": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\ThomasSolver.cpp",
+              "RelativeToolTip": "ThomasSolver.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-08T14:04:25.364Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ThomasSolver.hpp",
+              "DocumentMoniker": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\ThomasSolver.hpp",
+              "RelativeDocumentMoniker": "ThomasSolver.hpp",
+              "ToolTip": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\ThomasSolver.hpp",
+              "RelativeToolTip": "ThomasSolver.hpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-08T14:02:10.869Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ExplicitFD.cpp",
+              "DocumentMoniker": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\ExplicitFD.cpp",
+              "RelativeDocumentMoniker": "ExplicitFD.cpp",
+              "ToolTip": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\ExplicitFD.cpp",
+              "RelativeToolTip": "ExplicitFD.cpp",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAAFcAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-08T12:47:16.978Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ExplicitFD.hpp",
+              "DocumentMoniker": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\ExplicitFD.hpp",
+              "RelativeDocumentMoniker": "ExplicitFD.hpp",
+              "ToolTip": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\ExplicitFD.hpp",
+              "RelativeToolTip": "ExplicitFD.hpp",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-06T20:41:29.759Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "StabilityTest.cpp",
+              "DocumentMoniker": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\StabilityTest.cpp",
+              "RelativeDocumentMoniker": "StabilityTest.cpp",
+              "ToolTip": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\StabilityTest.cpp",
+              "RelativeToolTip": "StabilityTest.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-06T21:35:34.828Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ConvergenceTest.cpp",
+              "DocumentMoniker": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\ConvergenceTest.cpp",
+              "RelativeDocumentMoniker": "ConvergenceTest.cpp",
+              "ToolTip": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\ConvergenceTest.cpp",
+              "RelativeToolTip": "ConvergenceTest.cpp",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAQwE8AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-06T21:35:15.187Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "StabilityTest.hpp",
+              "DocumentMoniker": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\StabilityTest.hpp",
+              "RelativeDocumentMoniker": "StabilityTest.hpp",
+              "ToolTip": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\StabilityTest.hpp",
+              "RelativeToolTip": "StabilityTest.hpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAB6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-06T21:24:25.668Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ConvergenceTest.hpp",
+              "DocumentMoniker": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\ConvergenceTest.hpp",
+              "RelativeDocumentMoniker": "ConvergenceTest.hpp",
+              "ToolTip": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\ConvergenceTest.hpp",
+              "RelativeToolTip": "ConvergenceTest.hpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-06T21:18:29.595Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BlackScholesPDE.hpp",
+              "DocumentMoniker": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\BlackScholesPDE.hpp",
+              "RelativeDocumentMoniker": "BlackScholesPDE.hpp",
+              "ToolTip": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\BlackScholesPDE.hpp",
+              "RelativeToolTip": "BlackScholesPDE.hpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADYAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-06T20:42:17.06Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Grid1D.hpp",
+              "DocumentMoniker": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\Grid1D.hpp",
+              "RelativeDocumentMoniker": "Grid1D.hpp",
+              "ToolTip": "C:\\Users\\linsh\\OneDrive\\Desktop\\PDEProject\\Grid1D.hpp",
+              "RelativeToolTip": "Grid1D.hpp",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-06T20:41:02.753Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

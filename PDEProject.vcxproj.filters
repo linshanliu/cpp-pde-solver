@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\PDE">
+      <UniqueIdentifier>{4f5659f6-d16b-4daa-bdf8-7429bec43f11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Grid">
+      <UniqueIdentifier>{e8ebfe53-7ab9-4e8d-b94e-31775ae389fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Test">
+      <UniqueIdentifier>{bfe1513e-c17b-42fa-b188-6dca98d5fb32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utility">
+      <UniqueIdentifier>{e7e851e3-2d5d-4e42-a65c-cc7a6ef6f1be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\FDM">
+      <UniqueIdentifier>{1e19d8c3-3838-4b33-954a-5f0ade7f4d63}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BlackScholesPDE.hpp">
+      <Filter>Header Files\PDE</Filter>
+    </ClInclude>
+    <ClInclude Include="Grid1D.hpp">
+      <Filter>Header Files\Grid</Filter>
+    </ClInclude>
+    <ClInclude Include="ExplicitFD.hpp">
+      <Filter>Header Files\FDM</Filter>
+    </ClInclude>
+    <ClInclude Include="ConvergenceTest.hpp">
+      <Filter>Header Files\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="StabilityTest.hpp">
+      <Filter>Header Files\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="ImplicitFD.hpp">
+      <Filter>Header Files\FDM</Filter>
+    </ClInclude>
+    <ClInclude Include="CrankNicolsonFD.hpp">
+      <Filter>Header Files\FDM</Filter>
+    </ClInclude>
+    <ClInclude Include="ThomasSolver.hpp">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="PSORSolver.hpp">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="BarrierBlackScholesPDE.hpp">
+      <Filter>Header Files\PDE</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConvergenceTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StabilityTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ExplicitFD.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThomasSolver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImplicitFD.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CrankNicolsonFD.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PSORSolver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BlackScholesPDE.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BarrierBlackScholesPDE.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
