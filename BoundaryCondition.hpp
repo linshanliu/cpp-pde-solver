@@ -3,7 +3,7 @@
 
 #include <cmath>
 
-//  Boumdary condition type
+//  Boundary condition type
 enum class BCType
 {
     Dirichlet,   // V = value

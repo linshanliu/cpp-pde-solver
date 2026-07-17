@@ -18,13 +18,15 @@
 namespace analytic {
 
     inline double NormCdf(double x)
-    {
+    {   
+		// 1/ sqrt(2) = 0.7071067811865475244
         static constexpr double kInvSqrt2 = 0.7071067811865475244;
         return 0.5 * std::erfc(-x * kInvSqrt2);
     }
 
     inline double NormPdf(double x)
     {
+		// 1/ sqrt(2 pi) = 0.3989422804014326779
         static constexpr double kInvSqrt2Pi = 0.3989422804014326779;
         return kInvSqrt2Pi * std::exp(-0.5 * x * x);
     }
@@ -43,10 +45,17 @@ namespace analytic {
 
     inline double Price(const BSInputs& p)
     {
-        if (p.T <= 0.0 || p.sigma <= 0.0)
-            return p.type == OptionType::Call ? std::max(p.S - p.K, 0.0)
-            : std::max(p.K - p.S, 0.0);
+		// Handle degenerate cases: T=0 or sigma=0. The latter is a forward contract.
+        if (p.T <= 0.0)
+            return p.type == OptionType::Call ? std::max(p.S - p.K, 0.0): std::max(p.K - p.S, 0.0);
+        if (p.sigma <= 0.0) {
+            const double fwd = p.S * std::exp((p.r - p.q) * p.T);
+            const double dfr = std::exp(-p.r * p.T);
+            return dfr * (p.type == OptionType::Call ? std::max(fwd - p.K, 0.0): std::max(p.K - fwd, 0.0));
+        }
 
+
+		// Standard Black-Scholes formula
         const double d1 = D1(p);
         const double d2 = d1 - p.sigma * std::sqrt(p.T);
         const double dfq = std::exp(-p.q * p.T);
@@ -62,8 +71,7 @@ namespace analytic {
     {
         const double dfq = std::exp(-p.q * p.T);
         const double d1 = D1(p);
-        return p.type == OptionType::Call ? dfq * NormCdf(d1)
-            : -dfq * NormCdf(-d1);
+        return p.type == OptionType::Call ? dfq * NormCdf(d1) : -dfq * NormCdf(-d1);
     }
 
     inline double Gamma(const BSInputs& p)

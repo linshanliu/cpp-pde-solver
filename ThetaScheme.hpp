@@ -19,6 +19,16 @@
 // ---------------------------------------------------------------------------
 class ThetaScheme : public FDMBase
 {
+private:
+    void ApplyBoundaryRow(std::size_t i, double tNew, double tOld, double dt);
+    double theta_;
+
+    // scratch, sized M+1, refilled every step
+    std::vector<double> loNew_, diNew_, upNew_;
+    std::vector<double> loOld_, diOld_, upOld_;
+    std::vector<double> a_, b_, c_, d_;
+protected:
+    void StepBack(std::size_t n) override;
 public:
     ThetaScheme(const ConvectionDiffusionPDE& pde,
         const Payoff& payoff,
@@ -27,19 +37,6 @@ public:
         double                        theta);
 
     double Theta() const { return theta_; }
-
-protected:
-    void StepBack(std::size_t n) override;
-
-private:
-    void ApplyBoundaryRow(std::size_t i, double tNew, double tOld, double dt);
-
-    double theta_;
-
-    // scratch, sized M+1, refilled every step
-    std::vector<double> loNew_, diNew_, upNew_;
-    std::vector<double> loOld_, diOld_, upOld_;
-    std::vector<double> a_, b_, c_, d_;
 };
 
 #endif // THETA_SCHEME_HPP

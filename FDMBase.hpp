@@ -17,27 +17,6 @@
 // ---------------------------------------------------------------------------
 class FDMBase
 {
-public:
-    FDMBase(const ConvectionDiffusionPDE& pde,
-        const Payoff& payoff,
-        const BoundaryConditions& bc,
-        const Grid& grid);
-
-    virtual ~FDMBase() = default;
-
-    // Runs the full backward sweep. Returns V(S, 0) on the grid.
-    const std::vector<double>& Solve();
-
-    const std::vector<double>& Solution() const { return V_; }
-
-    double Price(double S0) const;
-
-    // Read straight off the grid -- no bump-and-revalue. Both are evaluated at
-    // the node nearest S0, so put S0 on a node if you care about the last
-    // digit (SinhGrid with focus = S0 does this for free).
-    double Delta(double S0) const;
-    double Gamma(double S0) const;
-
 protected:
     // One step: t_[n+1] (known) -> t_[n] (unknown).
     virtual void StepBack(std::size_t n) = 0;
@@ -64,6 +43,27 @@ protected:
     const Grid& grid_;
 
     std::vector<double> V_;
+
+public:
+    FDMBase(const ConvectionDiffusionPDE& pde,
+        const Payoff& payoff,
+        const BoundaryConditions& bc,
+        const Grid& grid);
+
+    virtual ~FDMBase() = default;
+
+    // Runs the full backward sweep. Returns V(S, 0) on the grid.
+    const std::vector<double>& Solve();
+
+    const std::vector<double>& Solution() const { return V_; }
+
+    double Price(double S0) const;
+
+    // Read straight off the grid -- no bump-and-revalue. Both are evaluated at
+    // the node nearest S0, so put S0 on a node if you care about the last
+    // digit (SinhGrid with focus = S0 does this for free).
+    double Delta(double S0) const;
+    double Gamma(double S0) const;
 };
 
 #endif // FDM_BASE_HPP

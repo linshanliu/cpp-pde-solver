@@ -18,7 +18,7 @@
 //  final: a barrier is a contract feature, not a change of dynamics. It
 //  belongs in Domain + BoundaryCondition, not in a subclass of this.
 // ---------------------------------------------------------------------------
-class BlackScholesPDE final : public ConvectionDiffusionPDE
+class BlackScholesPDE: public ConvectionDiffusionPDE
 {
 public:
     BlackScholesPDE(double r, double sigma, double q = 0.0);
