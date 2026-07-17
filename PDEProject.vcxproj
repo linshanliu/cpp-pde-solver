@@ -127,27 +127,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="BarrierBlackScholesPDE.hpp" />
+    <ClInclude Include="AnalyticBlackScholes.hpp" />
     <ClInclude Include="BlackScholesPDE.hpp" />
-    <ClInclude Include="ConvergenceTest.hpp" />
-    <ClInclude Include="CrankNicolsonFD.hpp" />
-    <ClInclude Include="ExplicitFD.hpp" />
-    <ClInclude Include="Grid1D.hpp" />
-    <ClInclude Include="ImplicitFD.hpp" />
-    <ClInclude Include="PSORSolver.hpp" />
-    <ClInclude Include="StabilityTest.hpp" />
+    <ClInclude Include="BoundaryCondition.hpp" />
+    <ClInclude Include="ConvectionDiffusionPDE.hpp" />
+    <ClInclude Include="Domain.hpp" />
+    <ClInclude Include="FDMBase.hpp" />
+    <ClInclude Include="Grid.hpp" />
+    <ClInclude Include="Payoff.hpp" />
+    <ClInclude Include="ThetaScheme.hpp" />
     <ClInclude Include="ThomasSolver.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BarrierBlackScholesPDE.cpp" />
     <ClCompile Include="BlackScholesPDE.cpp" />
-    <ClCompile Include="ConvergenceTest.cpp" />
-    <ClCompile Include="CrankNicolsonFD.cpp" />
-    <ClCompile Include="ExplicitFD.cpp" />
-    <ClCompile Include="ImplicitFD.cpp" />
+    <ClCompile Include="FDMBase.cpp" />
+    <ClCompile Include="Grid.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="PSORSolver.cpp" />
-    <ClCompile Include="StabilityTest.cpp" />
+    <ClCompile Include="ThetaScheme.cpp" />
     <ClCompile Include="ThomasSolver.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

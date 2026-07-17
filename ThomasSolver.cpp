@@ -1,61 +1,40 @@
 #include "ThomasSolver.hpp"
 
-#include <vector>
-#include <stdexcept>
 #include <cmath>
+#include <stdexcept>
 
-std::vector<double> ThomasSolver::Solve(
-    const std::vector<double>& lower,
-    const std::vector<double>& diag,
-    const std::vector<double>& upper,
-    const std::vector<double>& rhs)
-{
-    const std::size_t n = diag.size();
+namespace thomas {
 
-    if (n == 0)
-        throw std::invalid_argument("ThomasSolver: empty system.");
-
-    if (rhs.size() != n)
-        throw std::invalid_argument("ThomasSolver: rhs size mismatch.");
-
-    if (lower.size() != n - 1)
-        throw std::invalid_argument("ThomasSolver: lower diagonal size mismatch.");
-
-    if (upper.size() != n - 1)
-        throw std::invalid_argument("ThomasSolver: upper diagonal size mismatch.");
-
-    std::vector<double> cPrime(n - 1);
-    std::vector<double> dPrime(n);
-    std::vector<double> x(n);
-
-    if (std::fabs(diag[0]) < 1e-14)
-        throw std::runtime_error("ThomasSolver: zero pivot encountered.");
-
-    if (n > 1)
-        cPrime[0] = upper[0] / diag[0];
-
-    dPrime[0] = rhs[0] / diag[0];
-
-    for (std::size_t i = 1; i < n; ++i)
+    void SolveInPlace(const std::vector<double>& a,
+        std::vector<double>& b,
+        const std::vector<double>& c,
+        std::vector<double>& d)
     {
-        double denominator = diag[i] - lower[i - 1] * cPrime[i - 1];
+        const std::size_t n = b.size();
+        if (n == 0)
+            return;
+        if (a.size() != n || c.size() != n || d.size() != n)
+            throw std::invalid_argument("thomas: size mismatch");
 
-        if (std::fabs(denominator) < 1e-14)
-            throw std::runtime_error("ThomasSolver: zero pivot encountered.");
+        constexpr double kTiny = 1e-300;
 
-        if (i < n - 1)
-            cPrime[i] = upper[i] / denominator;
+        for (std::size_t i = 1; i < n; ++i)
+        {
+            if (std::abs(b[i - 1]) < kTiny)
+                throw std::runtime_error("thomas: zero pivot in forward sweep");
 
-        dPrime[i] =
-            (rhs[i] - lower[i - 1] * dPrime[i - 1]) / denominator;
+            const double m = a[i] / b[i - 1];
+            b[i] -= m * c[i - 1];
+            d[i] -= m * d[i - 1];
+        }
+
+        if (std::abs(b[n - 1]) < kTiny)
+            throw std::runtime_error("thomas: zero pivot at last row");
+
+        d[n - 1] /= b[n - 1];
+
+        for (std::size_t i = n - 1; i-- > 0; )
+            d[i] = (d[i] - c[i] * d[i + 1]) / b[i];
     }
 
-    x[n - 1] = dPrime[n - 1];
-
-    for (std::size_t i = n - 1; i-- > 0;)
-    {
-        x[i] = dPrime[i] - cPrime[i] * x[i + 1];
-    }
-
-    return x;
-}
+}  // namespace thomas
