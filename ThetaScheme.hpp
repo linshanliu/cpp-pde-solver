@@ -34,7 +34,7 @@ public:
         const Payoff& payoff,
         const BoundaryConditions& bc,
         const Grid& grid,
-        double                        theta);
+        double theta);
 
     double Theta() const { return theta_; }
 };

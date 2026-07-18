@@ -19,8 +19,11 @@ class FDMBase
 {
 protected:
     // One step: t_[n+1] (known) -> t_[n] (unknown).
+	// virtual function because the stepping rule is scheme-dependent.
     virtual void StepBack(std::size_t n) = 0;
 
+
+	// Fills the terminal condition V(S, T) = payoff(S) on the grid.
     void ApplyTerminal();
 
     // Fills interior rows 1..M-1 of the spatial operator L at time t:

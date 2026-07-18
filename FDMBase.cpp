@@ -79,6 +79,8 @@ void FDMBase::LinearityRow(std::size_t i, double t,
     }
 }
 
+
+
 std::size_t FDMBase::NearestInteriorIndex(double S0) const
 {
     std::size_t i = grid_.NearestIndex(S0);
@@ -87,10 +89,50 @@ std::size_t FDMBase::NearestInteriorIndex(double S0) const
     return i;
 }
 
+
+
 double FDMBase::Price(double S0) const
 {
     return grid_.Interpolate(V_, S0);
 }
+
+// ---------------------------------------------------------------------------
+//
+//  DERIVATION (uniform spacing h, for intuition).
+//  Expand the two neighbours about S_i, with all derivatives taken at S_i:
+//
+//      V[i+1] = V + h V' + (h^2/2) V'' + (h^3/6) V''' + ...      (step +h)
+//      V[i-1] = V - h V' + (h^2/2) V'' - (h^3/6) V''' + ...      (step -h)
+//
+//  Under +h vs -h, ODD-order terms (V', V''') flip sign; EVEN-order terms
+//  (V'') do not. So:
+//
+//    * SUBTRACT -> the V'' terms cancel, leaving V':
+//          V[i+1] - V[i-1] = 2h V' + O(h^3)
+//          => V' ~ ( -1/2h ) V[i-1] + 0 V[i] + ( 1/2h ) V[i+1]      (2nd order)
+//      First-derivative weights are ANTISYMMETRIC, centre weight is 0:
+//      a slope reads the left/right difference; the centre point drops out.
+//
+//    * ADD -> the V' terms cancel, leaving V'':
+//          V[i+1] + V[i-1] = 2V[i] + h^2 V'' + O(h^4)
+//          => V'' ~ ( 1/h^2 ) V[i-1] + ( -2/h^2 ) V[i] + ( 1/h^2 ) V[i+1]
+//      Second-derivative weights are SYMMETRIC, centre is the -2 main term:
+//      curvature reads how far the centre sits from the average of its sides.
+//
+//  NON-UNIFORM GRID
+//  With unequal spacings
+//      hm = S_i - S_{i-1}   (backward),   hp = S_{i+1} - S_i   (forward),
+//  the +hp / -hm expansions no longer cancel cleanly (the two V'' coeffs
+//  hp^2/2 and hm^2/2 differ), so the weights are solved from the pair of
+//  Taylor equations directly:
+//
+//      V_S  (S_i) ~ dm V_{i-1} + d0 V_i + dp V_{i+1}
+//      V_SS (S_i) ~ em V_{i-1} + e0 V_i + ep V_{i+1}
+//
+//  Note d0 = (hp - hm)/(hm*hp) is now NON-ZERO: on a non-uniform grid the
+//  centre point does contribute to the first derivative. All six reduce to
+//  the 1/2h and 1/h^2 forms above when hm == hp.
+// ---------------------------------------------------------------------------
 
 double FDMBase::Delta(double S0) const
 {
