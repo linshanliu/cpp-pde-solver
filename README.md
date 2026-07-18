@@ -114,6 +114,99 @@ The linear system to be solved at each implicit step is **tridiagonal** (each
 grid point only talks to its two neighbours), which can be solved very cheaply
 by the **Thomas algorithm** — that's `ThomasSolver`.
 
+### 2.4 What the three schemes actually do, step by step
+
+To make the trade-offs concrete, here is what one backward time step looks like
+in each case. Write `L` for the operation "apply the finite-difference
+derivatives at every grid point" — it takes the whole layer of values and
+returns the PDE's right-hand side. We're stepping from a known layer `Vᵒˡᵈ`
+(closer to expiry) to an unknown one `Vⁿᵉʷ` (one step closer to today).
+
+The general rule, with the dial `θ`, is:
+
+```
+Vⁿᵉʷ  =  Vᵒˡᵈ  +  dt · [ θ · L(Vⁿᵉʷ)  +  (1−θ) · L(Vᵒˡᵈ) ]
+```
+
+Read it as: the change over one step is a blend of the derivatives evaluated at
+the *old* layer and at the *new* layer, mixed in proportion `(1−θ) : θ`.
+
+**Explicit (`θ = 0`).**
+
+```
+Vⁿᵉʷ  =  Vᵒˡᵈ  +  dt · L(Vᵒˡᵈ)
+```
+
+Everything on the right is known, so `Vⁿᵉʷ` is just read off directly — one
+multiply-add per grid point, no system to solve. Fast and simple.
+
+The catch is **stability**. Each step effectively takes a step of size
+proportional to `dt / h²` along the diffusion. If that ratio is too big, the
+grid points start *overcorrecting* each other: a small error at one point
+overshoots at its neighbour on the next step, which overshoots back even
+harder, and the whole solution oscillates and explodes. Concretely you need
+
+```
+dt  ≤  h² / (σ²·Sₘₐₓ²)          (roughly)
+```
+
+so halving the grid spacing `h` forces *quartering* the time step. Refining
+space to get accuracy makes the explicit scheme brutally expensive. This is why
+the old convergence test used `N ∝ M²` time steps — that ratio is not a choice,
+it's the stability limit.
+
+**Fully implicit (`θ = 1`).**
+
+```
+Vⁿᵉʷ  −  dt · L(Vⁿᵉʷ)  =  Vᵒˡᵈ
+```
+
+Now `Vⁿᵉʷ` appears on both sides, tangled together through `L` (each point's new
+value depends on its neighbours' new values). You can't read it off; you have to
+**solve** for the whole layer at once. Because each point only couples to its
+two neighbours, that "solve" is a tridiagonal system — cheap, handled by
+`ThomasSolver` in one pass.
+
+The payoff for the extra work is **unconditional stability**: any `dt` you like,
+however large, and it never blows up. The overcorrection problem simply can't
+happen, because every point is solved in mutual consistency with its neighbours
+rather than reacting to their stale values. The price is accuracy: it's only
+**first-order** in time (halving `dt` roughly halves the error), because
+evaluating the derivatives entirely at the new layer is a slightly lopsided
+approximation of the step.
+
+**Crank–Nicolson (`θ = 0.5`).**
+
+```
+Vⁿᵉʷ  −  ½ dt · L(Vⁿᵉʷ)  =  Vᵒˡᵈ  +  ½ dt · L(Vᵒˡᵈ)
+```
+
+The average of the two. Still an implicit solve (a tridiagonal system, same cost
+as fully implicit), but by centring the derivatives halfway between the old and
+new layers it becomes **second-order** accurate — halving `dt` quarters the
+error. For smooth problems it's the sweet spot: implicit stability *and* high
+accuracy.
+
+The "but" — and it's the whole of §5.2 — is that Crank–Nicolson is stable in the
+sense that it won't *explode*, but it doesn't actively *damp* the roughest
+wobbles either; it leaves them bouncing at constant size, flipping sign each
+step. On a smooth solution there are no such wobbles and this never bites. But a
+payoff has a sharp corner, which is rough, so those wobbles get excited and show
+up as "ringing" — hence the fixes in §5.2 (put a node on the corner; or take a
+few fully-implicit steps first to damp the corner, then switch to
+Crank–Nicolson).
+
+**Summary of the mechanism:**
+
+| Scheme          | One step is…                    | Cost/step      | Error   | Stability                         |
+|-----------------|---------------------------------|----------------|---------|-----------------------------------|
+| Explicit        | a direct formula                | cheapest       | `O(dt)` | only if `dt ≲ h²` — very limiting |
+| Crank–Nicolson  | a tridiagonal solve (centred)   | one solve      | `O(dt²)`| stable, but doesn't damp roughness|
+| Fully implicit  | a tridiagonal solve (new layer) | one solve      | `O(dt)` | stable at any `dt`, damps roughness|
+
+All three are the *same code path* in `ThetaScheme` with a different `θ` — which
+is exactly why they live in one class instead of three.
+
 ---
 
 ## 3. How the code is organised
