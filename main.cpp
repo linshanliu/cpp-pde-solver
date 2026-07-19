@@ -7,6 +7,7 @@
 #include "Grid.hpp"
 #include "Payoff.hpp"
 #include "ThetaScheme.hpp"
+#include "ConvergenceTest.hpp"
 
 int main()
 {
@@ -33,5 +34,6 @@ int main()
             theta, fd.Price(S0), fd.Delta(S0), fd.Gamma(S0));
     }
 
+    ConvergenceTest::Run();
     return 0;
 }

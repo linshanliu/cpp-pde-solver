@@ -3,99 +3,138 @@
 #include <iostream>
 #include <iomanip>
 #include <cmath>
+#include <vector>
 
-#include "Grid1D.hpp"
+#include "AnalyticBlackScholes.hpp"
 #include "BlackScholesPDE.hpp"
-#include "ExplicitFD.hpp"
+#include "BoundaryCondition.hpp"
+#include "Domain.hpp"
+#include "Grid.hpp"
+#include "Payoff.hpp"
+#include "ThetaScheme.hpp"
 
+// ---------------------------------------------------------------------------
+//  A note on reading these tables.
+//
+//  The total error has two independent parts: a SPATIAL part O(h^2) and a
+//  TEMPORAL part that is O(dt^2) for Crank-Nicolson and O(dt) for fully
+//  implicit. Whichever part is larger is the one a refinement study "sees".
+//
+//  So a single refinement direction can MISLEAD. If we refine space and time
+//  together while the spatial error dominates, even the first-order implicit
+//  scheme looks second order -- because we are watching the spatial O(h^2)
+//  term, not its temporal O(dt) term. To observe the temporal order we must
+//  hold the grid fixed (spatial error frozen and small) and refine time alone.
+//
+//  This test therefore does both:
+//    (A) spatial refinement  -- double M, scale N with M   -> spatial order
+//    (B) temporal refinement -- fix a large M, double N     -> temporal order
+//
+//  Knowing that the observed order depends on which error dominates is itself
+//  the point: it is exactly the kind of thing a model validation has to get
+//  right before certifying a convergence claim.
+// ---------------------------------------------------------------------------
 
-double ConvergenceTest::NormalCDF(double x)
+namespace
 {
-    return 0.5 * std::erfc(-x / std::sqrt(2.0));
-}
-
-
-double ConvergenceTest::BlackScholesClosedForm(double S, double K, double T, double r, double sigma, bool isCall, double q)
-{
-    double d1 = (std::log(S / K) + (r - q + 0.5 * sigma * sigma) * T) / (sigma * std::sqrt(T));
-
-    double d2 = d1 - sigma * std::sqrt(T);
-
-    if (isCall)
+    double PriceCall(double S0, double K, double T, double r, double sigma, double q,
+        std::size_t M, std::size_t N, double theta)
     {
-        return S * std::exp(-q * T) * NormalCDF(d1) - K * std::exp(-r * T) * NormalCDF(d2);
+        BlackScholesPDE    pde(r, sigma, q);
+        VanillaPayoff      payoff(K, OptionType::Call);
+        Domain             dom{ 0.0, 4.0 * K, T };
+        LinearityBC        lo, hi;
+        BoundaryConditions bc{ lo, hi };
+        UniformGrid        grid(dom, M, N);
+
+        ThetaScheme fd(pde, payoff, bc, grid, theta);
+        fd.Solve();
+        return fd.Price(S0);
     }
 
-    return K * std::exp(-r * T) * NormalCDF(-d2) - S * std::exp(-q * T) * NormalCDF(-d1);
-}
+    void PrintHeader(const char* col1)
+    {
+        std::cout << std::left
+            << std::setw(8) << col1
+            << std::setw(18) << "Price"
+            << std::setw(16) << "Error"
+            << std::setw(10) << "Ratio"
+            << "\n" << std::string(52, '-') << "\n";
+    }
 
+    void PrintRow(std::size_t param, double price, double error, double prevError)
+    {
+        std::cout << std::left
+            << std::setw(8) << param
+            << std::setw(18) << std::fixed << std::setprecision(8) << price
+            << std::setw(16) << std::scientific << std::setprecision(3) << error;
+        if (prevError > 0.0)
+            std::cout << std::fixed << std::setprecision(2) << std::setw(10) << (prevError / error);
+        else
+            std::cout << std::setw(10) << "-";
+        std::cout << "\n";
+    }
+
+    // (A) Refine space; scale N with M so the temporal error stays subordinate.
+    void SpatialStudy(const char* name, double theta,
+        double S0, double K, double T, double r, double sigma, double q,
+        double exact)
+    {
+        std::cout << "\n[A] Spatial refinement -- " << name
+            << " (theta = " << theta << "), N = 20*M\n";
+        PrintHeader("M");
+        double prev = 0.0;
+        for (std::size_t M : { 50, 100, 200, 400 })
+        {
+            const std::size_t N = 20 * M;
+            const double price = PriceCall(S0, K, T, r, sigma, q, M, N, theta);
+            const double error = std::fabs(price - exact);
+            PrintRow(M, price, error, prev);
+            prev = error;
+        }
+    }
+
+    // (B) Fix a large grid; refine time alone to expose the temporal order.
+    //     CN -> ratio ~ 4 (second order); implicit -> ratio ~ 2 (first order),
+    //     until the frozen spatial error is reached and the ratio collapses.
+    void TemporalStudy(const char* name, double theta,
+        double S0, double K, double T, double r, double sigma, double q,
+        double exact)
+    {
+        std::cout << "\n[B] Temporal refinement -- " << name
+            << " (theta = " << theta << "), M = 800 fixed\n";
+        PrintHeader("N");
+        double prev = 0.0;
+        for (std::size_t N : { 25, 50, 100, 200 })
+        {
+            const double price = PriceCall(S0, K, T, r, sigma, q, 800, N, theta);
+            const double error = std::fabs(price - exact);
+            PrintRow(N, price, error, prev);
+            prev = error;
+        }
+    }
+}
 
 void ConvergenceTest::Run()
 {
-    double S0 = 100.0;
-    double K = 100.0;
-    double T = 1.0;
-    double r = 0.05;
-    double sigma = 0.2;
+    const double S0 = 100.0, K = 100.0, T = 1.0, r = 0.05, sigma = 0.2, q = 0.0;
 
-    //  Black Scholes pde object with default parameters
-    BlackScholesPDE pde(K, T, r, sigma, true);
+    const analytic::BSInputs ref{ S0, K, T, r, sigma, q, OptionType::Call };
+    const double exact = analytic::Price(ref);
 
+    std::cout << "\n============================================================\n";
+    std::cout << "Convergence Test -- European call vs closed-form Black-Scholes\n";
+    std::cout << "============================================================\n";
+    std::cout << std::fixed << std::setprecision(8);
+    std::cout << "Closed-form price: " << exact << "\n";
 
-    // exact solution
-    double exact = BlackScholesClosedForm(S0, K, T, r, sigma, true);
+    // Spatial order: both schemes are O(h^2) in space, so both show ratio ~ 4.
+    SpatialStudy("Crank-Nicolson", 0.5, S0, K, T, r, sigma, q, exact);
+    SpatialStudy("Fully implicit", 1.0, S0, K, T, r, sigma, q, exact);
 
-
-    // 4 different number of steps for state space
-    std::vector<int> spatialSteps = {50, 100, 200, 400};
+    // Temporal order: CN is O(dt^2) -> ratio ~ 4; implicit is O(dt) -> ratio ~ 2.
+    TemporalStudy("Crank-Nicolson", 0.5, S0, K, T, r, sigma, q, exact);
+    TemporalStudy("Fully implicit", 1.0, S0, K, T, r, sigma, q, exact);
 
     std::cout << "\n";
-    std::cout << "==============================\n";
-    std::cout << "Convergence Test\n";
-    std::cout << "==============================\n";
-
-
-    // set width of cout
-    std::cout
-        << std::setw(10) << "M(spatialSteps)"
-        << std::setw(15) << "Price"
-        << std::setw(15) << "Error"
-        << std::endl;
-
-    for (auto M : spatialSteps)
-    {
-        // create grid object with xMin = 0, xMax = 300 and number of steps (state space) = M
-        Grid1D grid(0.0, 300.0, M);
-
-
-        // create Explicit finit difference object with the corresponding pde, grid and time step
-        // here with choose the time step depending on state step M (why?)
-        // For the convergence test, the number of time steps is chosen
-        // proportional to M^2, where M is the number of spatial grid
-        // intervals.
-        //
-        // Since the explicit finite difference scheme requires
-        // dt = O(dS^2) for stability and dS = O(1/M), choosing
-        //
-        //     N = 5 * M^2
-        //
-        // ensures that dt decreases at the same rate as dS^2.
-        //
-        // This keeps the temporal discretisation error sufficiently
-        // small so that the observed error is dominated by the spatial
-        // discretisation, allowing the expected second-order spatial
-        // convergence to be clearly observed.
-        ExplicitFD solver(pde, grid, 5 * M * M);
-
-
-        double price = solver.Price(S0);
-
-        double error = std::fabs(price - exact);
-
-        std::cout
-            << std::setw(10) << M
-            << std::setw(15) << price
-            << std::setw(15) << error
-            << std::endl;
-    }
 }

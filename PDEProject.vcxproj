@@ -131,6 +131,7 @@
     <ClInclude Include="BlackScholesPDE.hpp" />
     <ClInclude Include="BoundaryCondition.hpp" />
     <ClInclude Include="ConvectionDiffusionPDE.hpp" />
+    <ClInclude Include="ConvergenceTest.hpp" />
     <ClInclude Include="Domain.hpp" />
     <ClInclude Include="FDMBase.hpp" />
     <ClInclude Include="Grid.hpp" />
@@ -140,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BlackScholesPDE.cpp" />
+    <ClCompile Include="ConvergenceTest.cpp" />
     <ClCompile Include="FDMBase.cpp" />
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="main.cpp" />
